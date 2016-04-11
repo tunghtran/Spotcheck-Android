@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Spotcheck">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Spotcheck: Connecting People to Places">
+    <meta property="og:site_name" content="A web app powered by Google App Engine">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="/js/connect.js"></script>
+
+    <script src="https://apis.google.com/js/client.js?onload=loadGapi">
+        { "client": {},
+          "googleapis.config": {
+            root: "https://spotcheck-3210.appspot.com/_ah/api"
+          }
+        }
+    </script>
+
+    <title>Spotcheck</title>
+</head>
+<body>
+    <header>
+        Spotcheck
+    </header>
+    <article>
+        <form>
+            <input type="text" id="first" placeholder="first name">
+            <input type="text" id="last" placeholder="last name">
+            <input type="text" id="email" placeholder="email">
+            <input type="text" id="password" placeholder="password">
+            <div onclick="submit()">save account</div>
+            <div onclick="getAccounts()">get accounts</div>
+        </form>
+    </article>
+    <footer>
+        
+    </footer>
+</body>
+</html>
