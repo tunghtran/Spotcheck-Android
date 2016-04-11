@@ -19,6 +19,7 @@ import com.spotcheck.form.AccountForm;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import javax.inject.Named;
 
@@ -113,7 +114,7 @@ public class SpotcheckApi
 
 		Query<Spot> query = ofy().load().type(Spot.class);
 		if (count != null) query.limit(count);
-		if (cursorString != null && cursorString != "") {
+		if (cursorString != null && !Objects.equals(cursorString, "")) {
 			query = query.startAt(Cursor.fromWebSafeString(cursorString));
 		}
 
@@ -129,7 +130,7 @@ public class SpotcheckApi
 		}
 
 		//Find the next cursor
-		if (cursorString != null && cursorString != "") {
+		if (cursorString != null && !Objects.equals(cursorString, "")) {
 			Cursor cursor = iterator.getCursor();
 			if (cursor != null) {
 				cursorString = cursor.toWebSafeString();
