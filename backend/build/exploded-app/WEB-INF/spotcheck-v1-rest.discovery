@@ -1,6 +1,6 @@
 {
  "kind": "discovery#restDescription",
- "etag": "\"u_zXkMELIlX4ktyNbM2XKD4vK8E/8RcjeCW9qgqoFhYSbyKg7LG-BK0\"",
+ "etag": "\"u_zXkMELIlX4ktyNbM2XKD4vK8E/3y9MyoO010MH9NoW12bVAR9AV4o\"",
  "discoveryVersion": "v1",
  "id": "spotcheck:v1",
  "name": "spotcheck",
@@ -111,6 +111,37 @@
      "type": "string"
     }
    }
+  },
+  "CollectionResponse_Spot": {
+   "id": "CollectionResponse_Spot",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "Spot"
+     }
+    },
+    "nextPageToken": {
+     "type": "string"
+    }
+   }
+  },
+  "Spot": {
+   "id": "Spot",
+   "type": "object",
+   "properties": {
+    "address": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "name": {
+     "type": "string"
+    }
+   }
   }
  },
  "methods": {
@@ -141,6 +172,62 @@
     "https://www.googleapis.com/auth/userinfo.email"
    ]
   },
+  "insertSpot": {
+   "id": "spotcheck.insertSpot",
+   "path": "spot",
+   "httpMethod": "POST",
+   "request": {
+    "$ref": "Spot",
+    "parameterName": "resource"
+   },
+   "response": {
+    "$ref": "Spot"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "listSpot": {
+   "id": "spotcheck.listSpot",
+   "path": "spot",
+   "httpMethod": "GET",
+   "parameters": {
+    "count": {
+     "type": "integer",
+     "format": "int32",
+     "location": "query"
+    },
+    "cursor": {
+     "type": "string",
+     "location": "query"
+    }
+   },
+   "response": {
+    "$ref": "CollectionResponse_Spot"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "removeSpot": {
+   "id": "spotcheck.removeSpot",
+   "path": "spot/{id}",
+   "httpMethod": "DELETE",
+   "parameters": {
+    "id": {
+     "type": "string",
+     "required": true,
+     "format": "int64",
+     "location": "path"
+    }
+   },
+   "parameterOrder": [
+    "id"
+   ],
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
   "saveAccount": {
    "id": "spotcheck.saveAccount",
    "path": "saveAccount",
@@ -151,6 +238,21 @@
    },
    "response": {
     "$ref": "Account"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "updateSpot": {
+   "id": "spotcheck.updateSpot",
+   "path": "spot",
+   "httpMethod": "PUT",
+   "request": {
+    "$ref": "Spot",
+    "parameterName": "resource"
+   },
+   "response": {
+    "$ref": "Spot"
    },
    "scopes": [
     "https://www.googleapis.com/auth/userinfo.email"

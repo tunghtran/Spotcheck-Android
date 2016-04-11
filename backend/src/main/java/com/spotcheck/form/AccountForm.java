@@ -15,7 +15,6 @@ public class AccountForm
     /**
      * Constructor for AccountForm, solely for unit test.
      * @param firstName A String for displaying the user on this system.
-     * @param notificationEmail An e-mail address for getting notifications from this system.
      */
     public AccountForm(String firstName, String lastName, String email, String password)
     {
